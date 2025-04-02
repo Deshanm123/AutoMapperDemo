@@ -1,4 +1,6 @@
 using AutoMapper;
+using Models.DbSet;
+using Dtos.Responses;
 
 namespace AutoMapper_DEmo.UserProfile
 {
@@ -7,7 +9,13 @@ namespace AutoMapper_DEmo.UserProfile
     {
         //first object : source of information
         //second object : destination of the information
+        CreateMap<User,GetUserResponse>()
+                .ForMember(des =>des.FullName,
+                           src => src.MapFrom($"{src.FirstName} {src.LastName}"))
+                .ForMember(des => des.Address,
+                            src=> src.MapFrom($"{src.StreetAddress} {src.PostCode}"))
+                .ForMember(des => des.Email,
+                           src => src.Email);
 
-        
     }
 }
