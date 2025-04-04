@@ -11,6 +11,15 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
+//// Configure routing
+//app.UseRouting();
+
+//// Map routes
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}"
+//);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
